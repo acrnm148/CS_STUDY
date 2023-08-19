@@ -30,7 +30,6 @@ cPU 의 처리 속도가 워낙 빨라서 수ms 내에 여러 프로세스들이
 
 여러 프로세스가 동시에 메모리에 적재된 경우, 서로 다른 프로세스의 영역을 침범하지 않도록 
 각 프로세스가 자신의 메모리 영역에만 접근하도록 운영체제가 관리해준다.
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/6b2bb03c-9252-4c53-a152-619a1ec29517/Untitled.png)
 
 ### CPU 연산 & PC Register
 
@@ -42,10 +41,6 @@ multi process 시스템에서는
 프로세스1이 진행되고 있을 때는 PC레지스터가 메모리상의 프로세스1의 code영역을 가리키고,
 프로세스2가 진행되면 PC레지스터가 메모리상의 프로세스2의 code영역을 가리킨다.
 CPU는 PC레지스터가 가리키는 곳에 따라 프로세스를 변경해가면서 명령어를 읽어들이고 연산을 수행한다.
-
-**CPU의 PC 레지스터 / 메모리**
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/54167fce-dcf5-48a9-ae95-73fc31dbbb48/Untitled.png)
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/f6513211-fd09-4555-aec8-238e0e575da8/Untitled.png)
 
 
 ## Context
