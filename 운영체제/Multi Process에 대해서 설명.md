@@ -24,3 +24,97 @@ cPU 의 처리 속도가 워낙 빨라서 수ms 내에 여러 프로세스들이
 사용자입장에서는 프로그램이 동시에 실행되는 것처럼 보입니다.
 
 이처럼 CPU의 작업시간을 여러 프로세스들이 조금씩 나누어 쓰는 시스템을 시분할 시스템이라고 합니다.
+
+
+### 메모리 관리
+
+여러 프로세스가 동시에 메모리에 적재된 경우, 서로 다른 프로세스의 영역을 침범하지 않도록 
+각 프로세스가 자신의 메모리 영역에만 접근하도록 운영체제가 관리해준다.
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/6b2bb03c-9252-4c53-a152-619a1ec29517/Untitled.png)
+
+### CPU 연산 & PC Register
+
+- **CPU가 여러개의 process를 변경해가면서 연산하는 방법?**
+
+CPU는 PC(Program Counter) 레지스터가 메모리 상에 가리키고 있는 주소의 명령어를 읽어들여 연산을 진행합니다.
+PC 레지스터에는 다음에 실행될 명령어의 주소값이 저장되어 있다.
+multi process 시스템에서는 
+프로세스1이 진행되고 있을 때는 PC레지스터가 메모리상의 프로세스1의 code영역을 가리키고,
+프로세스2가 진행되면 PC레지스터가 메모리상의 프로세스2의 code영역을 가리킨다.
+CPU는 PC레지스터가 가리키는 곳에 따라 프로세스를 변경해가면서 명령어를 읽어들이고 연산을 수행한다.
+
+**CPU의 PC 레지스터 / 메모리**
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/54167fce-dcf5-48a9-ae95-73fc31dbbb48/Untitled.png)
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/f6513211-fd09-4555-aec8-238e0e575da8/Untitled.png)
+
+
+## Context
+
+CPU에서 PC레지스터가 프로세스를 변경하며 연산을 수행할 때, 프로세스1이 수행되고 프로세스2로 Context Switching이 일어난 다음 다시 프로세스1로 돌아왔을 때, 어디까지 수행을 했는지에 대한 정보가 저장되어 있어야 마저 수행이 가능합니다. 때문에 이러한 문맥 정보를 저장하는 것이 Context이고, Context는 운영체제가 문맥을 저장하는 자료구조입니다.
+
+- 시분할 시스템에서는 한 process가 매우 짧은 시간동안 CPU를 점유하여 일정 부분의 명령을 수행하고, 다른 process에게 CPU 점유를 넘깁니다.
+- 그 후 차례가 되면 다시 CPU를 점유하여 명령을 수행합니다.
+- 따라서 이전에 어디까지 명령을 수행했고, PC Register에는 어떤 값이 저장되어 있었는지에 대한 정보가 필요하게 됩니다.
+- process가 현재 어떤 상태로 수행되고 있는지에 대한 총체적인 정보가 바로 context입니다.
+- context 정보들은 PCB(Process Control Block)에 저장합니다.
+
+⇒ 즉, 시분할시스템에서는 한 process가 CPU를 점유하고 일정 부분의 명령을 수행한 뒤
+다른 process에게 CPU 점유를 넘겨주어 일정 부분 명령을 수행한다.
+이후 다시 차례가 왔을 때 PC Register에게는 명령을 어디까지 실행했는지에 대한 정보(context)가 필요하다.
+해당 context를 저장하는 곳이 PCB(process Control Block)이다.
+
+
+### PCB (Process Control Block)
+
+PCB는 운영체제가 프로세스를 표현한 자료구조이다.
+PCB에는 process의 중요한 정보가 포함되어 있기 때문에, 일반 사용자들은 접근하지 못하도록 보호된 메모리 영역 안에 저장이 됩니다.
+일부 운영 체제에서는 PCB는 커널스택에 저장이 됩니다. (커널스택 = 운영체제)
+- 커널도 하나의 프로세스다.
+이 메모리 영역은 보호를 받으면서도 비교적 접근하기가 편리하기 때문입니다.
+
+PCB에는 일반적으로 다음과 같은 정보가 포함됩니다.
+- Process State : new, running, waiting, halted 등의 state
+- Process Number : 해당 process의 Number
+- Program counter(PC) : 해당 process가 다음에 실행할 명령어의 주소
+- Registers : register 값들
+- Memory limits : base register, … 메모리 범위
+
+### Context Switch
+
+한 process에서 다른 process로 CPU 제어권을 넘겨주는 것.
+이 때 이전의 process의 상태를 PCB(Process Control Block)에 저장하고 다른 process의 PCB를 읽어서 저장된 상태를 복구하는 작업이 이루어진다.
+
+---
+
+- **1. Process의 Context가 무엇인지 설명하시오.**
+    
+    ```jsx
+    프로세스의 컨텍스트는 프로세스가 현재 어떤 상태로 수행되고 있는지에 대한 정보입니다.
+    해당 정보는 PCB(Process Control Block)에 저장을 합니다.
+    ```
+    
+- **2. PCB에 저장되는 것들은 무엇이 있나요?**
+    
+    ```jsx
+    PCB는 운영체제가 process의 상태에 대한 정보를 모아놓은 자료구조입니다.
+    그리고 다음과 같은 정보가 저장됩니다.
+    Process number, Process state, Program Counter, Register, 메모리 정보가 저장됩니다.
+    ```
+    
+- **3. Context Switch에 대해 설명하시오.**
+    
+    ```jsx
+    컨텍스트 스위치는 한 프로세스에서 다른 프로세스로 CPU 제어권을 넘겨주는 것입니다.
+    이 때 이전의 프로세스의 상태를 PCB에 저장해서 보관해두고, 
+    다른 프로세스의 상태를 PCB에서 불러와 복구하여 명령을 수행합니다.
+    ```
+    
+- **4. process의 state에는 어떤 것들이 있나요?**
+    
+    ```jsx
+    프로세스에는 실행, 준비, 봉쇄 3가지 상태로 구분됩니다.
+    실행은 프로세스가 CPU를 점유하여 명령을 수행 중인 상태이고,
+    준비는 CPU만 할당받으면 즉시 명령을 수행할 수 있도록 준비된 상태이고,
+    봉쇄는 CPU를 할당받아도 명령을 실행할 수 없는 상태입니다.
+    	예를 들어 I/O 작업을 기다리는 경우가 있습니다.
+    ```
