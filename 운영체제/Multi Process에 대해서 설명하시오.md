@@ -79,6 +79,7 @@ PCB에는 일반적으로 다음과 같은 정보가 포함됩니다.
 한 process에서 다른 process로 CPU 제어권을 넘겨주는 것.
 이 때 이전의 process의 상태를 PCB(Process Control Block)에 저장하고 다른 process의 PCB를 읽어서 저장된 상태를 복구하는 작업이 이루어진다.
 
+
 ---
 
 - **1. Process의 Context가 무엇인지 설명하시오.**
