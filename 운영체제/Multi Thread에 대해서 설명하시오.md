@@ -61,7 +61,7 @@ PC Register는 프로그램 카운터(Program Counter)라고도 불린다.
 
 ---
 
-### 1. **Thread는 왜 독립적인 Stack 메모리 영역이 필요한가요?**
+### 1. **Thread는 왜 독립적인 Stack 메모리 영역이 필요한가요? **
 
 ```markdown
 쓰레드는 프로세스 내에서 독립적인 기능을 수행하는 단위입니다. 
