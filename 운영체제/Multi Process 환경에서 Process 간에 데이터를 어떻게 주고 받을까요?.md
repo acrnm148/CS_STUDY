@@ -1,4 +1,4 @@
-## Multi Process 환경에서 Process 간에 데이터를 어떻게 주고 받을까요?
+##Multi Process 환경에서 Process 간에 데이터를 어떻게 주고 받을까요?
 
 - 원칙적으로 process는 독립적인 주소 공간을 갖기 때문에, 다른 process의 주소 공간을 참조할 수 없습니다. (데이터를 공유하고 있지 않다.)
 하지만 경우에 따라서 운영체제는 process 간의 자원 접근을 위한 매커니즘인 프로세스 간 통신(IPC, Inter Process Communication)을 제공합니다.
