@@ -20,7 +20,8 @@ HTTP는
   * status line : HTTP version, status code, status message
   * headers
   * body
-![image](https://github.com/acrnm148/CS_STUDY/assets/67724306/9f17eea7-9a82-49a6-bbee-8d816eb9c639)
+![image](https://github.com/acrnm148/CS_STUDY/assets/67724306/5496ff82-415f-4ddf-83e4-71f23d9933f3)
+
 
 
 
