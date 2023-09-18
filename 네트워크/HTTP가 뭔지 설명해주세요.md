@@ -20,6 +20,9 @@ HTTP는
   * status line : HTTP version, status code, status message
   * headers
   * body
+![image](https://github.com/acrnm148/CS_STUDY/assets/67724306/9f17eea7-9a82-49a6-bbee-8d816eb9c639)
+
+
 
 - HTTP는 서버에 연결 후 요청에 대한 응답을 받으면 연결을 끊어버리는 Connectionless 특성을 갖습니다.
   => 장점: 많은 사람들이 웹을 이용하더라도 실제 동시 접속을 최소화하여 더 많은 유저의 요청을 처리할 수 있습니다.
