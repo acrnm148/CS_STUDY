@@ -40,7 +40,6 @@ ACK : Acknowlodgements
 ![image](https://github.com/acrnm148/CS_STUDY/assets/67724306/e45fd5a9-47e7-4a6d-970e-a5f9edddd353)
 
 
-
 ### 4-way handshake는 무엇인가요?
 ```
 TCP 연결을 위해 Connection Setup이 이루어지고, 데이터 전송이 끝나면
