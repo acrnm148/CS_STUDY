@@ -49,5 +49,3 @@ TCP Connection Termination은 양방향으로 2개의 연결이 서로 독립적
 4-way 단계를 밟게 됩니다.
 ```
 
-
-
