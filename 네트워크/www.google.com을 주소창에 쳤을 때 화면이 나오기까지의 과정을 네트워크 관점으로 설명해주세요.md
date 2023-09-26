@@ -12,6 +12,7 @@
 8. HTTP response 메시지에 담긴 데이터를 토대로 웹브라우저에서 HTML 렌더링을 하여 모니터에 검색창이 보여집니다.
 
 
+![image](https://github.com/acrnm148/CS_STUDY/assets/67724306/8f2c6c1e-3605-4ae2-b770-ec03a8e6590b)
 
 
 
