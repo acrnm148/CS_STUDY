@@ -27,7 +27,7 @@ ACK : Acknowlodgements
 - 요청을 수락한다
 
 
-# 4-way handshaking
+# 4-way handshaking 
 - 3-way handshakinbg을 통해 Connection setup을 했다면,
 - TCP연결을 종료하는 Connection termination 과정은 4-way handshaking을 통해 이루어집니다.
 - TCP통신의 Connection termination(TCP연결 종료 단계)은 양방향으로 2개의 연결이 독립적으로 닫히기 때문에 4-way 단계를 밟게 됩니다.
