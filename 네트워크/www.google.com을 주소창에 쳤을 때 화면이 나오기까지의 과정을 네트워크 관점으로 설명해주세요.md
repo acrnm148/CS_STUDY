@@ -15,6 +15,3 @@
 ![image](https://github.com/acrnm148/CS_STUDY/assets/67724306/8f2c6c1e-3605-4ae2-b770-ec03a8e6590b)
 
 
-
-
-
