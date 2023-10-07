@@ -1,4 +1,4 @@
-## Multi Process와 Multi Thread를 비교설명 해주세요.
+## Multi Process와 Multi Thread를 비교설명해주세요.
 
 두 방법은 동시에 여러 작업을 수행한다는 측면에서 유사한 면이 있습니다.
 적용할 시스템에 따라 두 방법의 장단점을 고려하여 적합한 방식을 선택해야 합니다.
