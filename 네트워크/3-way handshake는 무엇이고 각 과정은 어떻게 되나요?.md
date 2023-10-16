@@ -48,4 +48,3 @@ TCP 연결을 종료하는 Connection Termination이 이루어지고, 이 때 4-
 TCP Connection Termination은 양방향으로 2개의 연결이 서로 독립적으로 닫히기 때문에
 4-way 단계를 밟게 됩니다.
 ```
-
