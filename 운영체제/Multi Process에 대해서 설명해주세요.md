@@ -7,7 +7,7 @@
 **동시성 (Concurrency)**
 - Single Core (core 1개)
 - CPU의 Core가 1개일 때 여러 프로세스를 짧은 시간동안 빠르게 번갈아가면서 연산을 하는 시분할 시스템입니다.
-- 동시에 실행하는 것 처럼 보이는 것.
+- 동시에 실행하는 것 처럼 보이는 것
 
 **병렬성 (Parallelism) **
 - Multi Core (Core 여러개)
